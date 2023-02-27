@@ -6,53 +6,94 @@ class LandingPage extends StatelessWidget {
   static const routeName = "/LandingPage";
   @override
   Widget build(BuildContext context) {
-    Widget _judul() {
-      return Container(
-        padding: const EdgeInsets.fromLTRB(10, 40, 10, 20),
-        child: Text(
-          'Data Anggota',
-          style: TextStyle(
-              color: tPrimaryColor,
-              fontWeight: FontWeight.w700,
-              fontSize: 24),
-        ),
-      );
-    }
-
-    Widget dataKelompok() {
-      return ListView(
-        padding: const EdgeInsets.all(8),
-        children: [
-          _judul(),
-          ListTile(
-              title: Text(
-                tNama1,
-                style: TextStyle(fontSize: 19),
-              ),
-              subtitle: Text(
-                tNIM1,
-                style:
-                TextStyle(color: tPrimaryColor, fontSize: 16),
-              )),
-          ListTile(
-              title: Text(
-                tNama2,
-                style: TextStyle(fontSize: 19),
-              ),
-              subtitle: Text(
-                tNIM2,
-                style:
-                TextStyle(color: tPrimaryColor, fontSize: 16),
-              )),
-        ],
-      );
-    }
-
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('Home Page'),
-      // ),
-      body: dataKelompok(),
+      body: Column(
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              child: Stack(
+                children: [
+                  Stack(children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height/1.6,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                      ),
+                    ),
+                    Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height/1.6,
+                        decoration: BoxDecoration(
+                          color: tPrimaryColor,
+                          borderRadius: BorderRadius.only(bottomRight: Radius.circular(70), bottomLeft: Radius.circular(70)),
+                        ),
+                        child: Center(
+                          child: Image.asset(
+                            "assets/hand.png",
+                            scale: 2.3,
+                          ),
+                        )
+                    )],
+                  ),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height/2.666,
+                      padding: EdgeInsets.only(top: 50),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                      ),
+                      child: Column(children: [
+                        Text(
+                          "Get To Know Us!",
+                          style: TextStyle(
+                            fontSize: 30,
+                            color: tPrimaryColor,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 20),
+                          child:
+                          Text(
+                              tNama1 + " " + "-" + " " + tNIM1,
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: tPrimaryColor,
+                              )
+                          ),
+                        ),
+                        Text(
+                            tNama2 + " " + "-" + " " + tNIM2,
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: tPrimaryColor,
+                            )
+                        ),
+                      ],),
+                    )
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(90, 670, 20, 0),
+                    child: ElevatedButton(
+                      child: Text(tCalculate),
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                          primary: tPrimaryColor,
+                          padding: EdgeInsets.symmetric(horizontal: 60, vertical: 10),
+                          textStyle: TextStyle(
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold)),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ]
+      ),
     );
   }
 }
