@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'TPM First Assignment',
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
+        fontFamily: 'Poppins-SemiBold',
       ),
       home: LoginPage(),
     );
