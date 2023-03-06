@@ -90,8 +90,13 @@ class LandingPage extends StatelessWidget {
                           primary: tPrimaryColor,
                           padding: EdgeInsets.symmetric(horizontal: 60, vertical: 10),
                           textStyle: TextStyle(
-                              fontSize: 23,
-                              fontWeight: FontWeight.bold)),
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15)
+                          ),
+                      ),
                     ),
                   )
                 ],
@@ -143,7 +148,8 @@ class calculatorState extends State<calculator> {
     return Scaffold(
       appBar: new AppBar(
         title: new Text("Calculator"),
-      ), //AppBar
+        backgroundColor: tPrimaryColor,
+      ),
       backgroundColor: Colors.white,
       body: Column(
         children: <Widget>[
@@ -196,7 +202,6 @@ class calculatorState extends State<calculator> {
                         textColor: Colors.white,
                       );
                     }
-
                     // +/- button
                     else if (index == 1) {
                       return MyButton(
